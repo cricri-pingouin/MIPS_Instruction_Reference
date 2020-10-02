@@ -219,7 +219,7 @@ Note | The encoding for a NOOP represents the instruction SLL $0, $0, 0 which ha
 OR | Bitwise or
 -|-
 Description | Bitwise logical ors two registers and stores the result in a register 
-Operation | $d = $s  |  $t; advance_pc (4);  
+Operation | $d = $s  \|  $t; advance_pc (4);  
 Syntax | or $d, $s, $t  
 Encoding | 0000 00ss ssst tttt dddd d000 0010 0101  
 
