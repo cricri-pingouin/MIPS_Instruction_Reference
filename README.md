@@ -13,11 +13,11 @@ The manner in which the processor executes an instruction and advances its progr
 This behaviour is indicated in the instruction specifications below. For brevity, the function advance_pc (int) is used in many of the instruction descriptions. This function is defined as follows:
 
 `
-void advance_pc (SWORD offset) 
-{ 
-   PC  =  nPC; 
-  nPC  += offset; 
-}
+void advance_pc (SWORD offset)
+ {
+  PC  =  nPC;
+  nPC  += offset;
+ }
 `
 
 #### Note: ####
