@@ -1,26 +1,24 @@
 # MIPS Instruction Reference #
  
 ## General description: ##
-This is a description of the MIPS instruction set, their meanings, syntax, semantics, 
-and bit encodings. The syntax given for each instruction refers to the assembly 
-language syntax supported by the MIPS assembler. Hyphens in the encoding indicate 
-"don't care" bits which are not considered when an instruction is being decoded.  
-General purpose registers (GPRs) are indicated with a dollar sign ($). The words 
-SWORD and UWORD refer to 32-bit signed and 32-bit unsigned data types, 
-respectively.  
-The manner in which the processor executes an instruction and advances its program 
-counters is as follows:  
+This is a description of the MIPS instruction set, their meanings, syntax, semantics, and bit encodings. The syntax given for each instruction refers to the assembly 
+language syntax supported by the MIPS assembler. Hyphens in the encoding indicate "don't care" bits which are not considered when an instruction is being decoded.  
+General purpose registers (GPRs) are indicated with a dollar sign ($). The words SWORD and UWORD refer to 32-bit signed and 32-bit unsigned data types, respectively.  
+
+The manner in which the processor executes an instruction and advances its program counters is as follows:  
 1. execute the instruction at PC  
 2. copy nPC to PC  
 3. add 4 or the branch offset to nPC  
-This behavior is indicated in the instruction specifications below. For brevity, the 
-function advance_pc (int) is used in many of the instruction descriptions. This 
-function is defined as follows:  
+
+This behaviour is indicated in the instruction specifications below. For brevity, the function advance_pc (int) is used in many of the instruction descriptions. This function is defined as follows:
+
+`
 void advance_pc (SWORD offset) 
 { 
    PC  =  nPC; 
   nPC  += offset; 
-} 
+}
+`
 
 #### Note: ####
 ALL immediate values should be sign extended. After that, you treat them as 
@@ -216,9 +214,7 @@ Description | Performs no operation.
 Operation | advance_pc (4);  
 Syntax | noop  
 Encoding | 0000 0000 0000 0000 0000 0000 0000 0000
-Note | The encoding for a NOOP represents the instruction SLL $0, $0, 0 which has 
-no side effects. In fact, nearly every instruction that has $0 as its destination register 
-will have no side effect and can thus be considered a NOOP instruction.  
+Note | The encoding for a NOOP represents the instruction SLL $0, $0, 0 which has no side effects. In fact, nearly every instruction that has $0 as its destination register will have no side effect and can thus be considered a NOOP instruction.  
 
 OR | Bitwise or
 -|-
